@@ -1,0 +1,57 @@
+*{
+    margin:0px;
+    padding:0px;
+ } 
+ 
+.container{
+    display: flex;
+    flex-direction: column;
+    
+ }
+
+.box_2{
+    height: 23em;
+    background-color: aquamarine;
+    margin: 2%;
+    border-radius: 10px;
+}
+.box_3{
+    height: 18em;
+    background-color: blanchedalmond;
+    margin: 2%;
+    border-radius: 10px;
+}
+.box_4{
+    height: 18em;
+    background-color: rgb(198, 158, 97);
+    margin: 2%;
+    border-radius: 10px;
+}
+.search{
+   margin:20px 29px;;
+    height: 4em;
+    background-color: #00000008;
+    border-radius: 10px;
+}
+.analysis{
+   font-size: medium;
+
+}
+.finance{
+    font-size: medium;
+}
+.calender{
+ margin: auto;
+}
+.two{
+    display: grid;
+grid-template-columns: 1fr 1fr;
+margin: 10px 10px;
+}
+.box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+margin: 10px 20px ;
+}
