@@ -7,16 +7,23 @@
     
 </head>
 <body>
-   <div class="container"></div>
+   <div class="container">
    <div class="search">
     <h3>Search</h3>
    </div>
    <div class="box_2">
    <div class="two">
     <div class="analysis">
+        
         <h1 >Income Analysis</h1>
       
         <h2 >Finance Value</h2>
+        <body>
+<div class="body">
+            <canvas id="barChart" width="1870" height="376" style="display: block; box-sizing: border-box;height: 260px; width: 1090px;"></canvas>
+            
+        </div>
+            
      </div>
        
         <div class="calender">
@@ -32,6 +39,7 @@
             <h1 >Visitor Website</h1>
           
             <h2 >Visitor View</h2>
+            <div id="myChart" style="width:100%; max-width:1000px; height:200px;"></div>
          </div>
            
             <div class="calender">
@@ -46,6 +54,7 @@
             <h1 >Latest Visitors</h1>
           
             <h2 >Visitor Volume</h2>
+            
          </div>
            
             <div class="calender">
@@ -60,5 +69,114 @@
        <div class="time">Visit Time</div>
      </div>
    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+            <script>
+                // Example data
+                var labels = ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5'];
+                var data = [10, 20, 15, 25, 30];
+            
+                // Get the canvas element
+                var ctx = document.getElementById('barChart').getContext('2d');
+            
+                // Create a bar chart using Chart.js
+                var barChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Bar Chart',
+                            data: data,
+                            backgroundColor: 'rgba(0, 123, 255, 0.5)',
+                            borderColor: 'rgba(0, 123, 255, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }],
+                            y: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+                
+            </script>           
+            
+            <!-- Code injected by live-server -->
+            <script>
+                // <![CDATA[  <-- For SVG support
+                if ('WebSocket' in window) {
+                    (function () {
+                        function refreshCSS() {
+                            var sheets = [].slice.call(document.getElementsByTagName("link"));
+                            var head = document.getElementsByTagName("head")[0];
+                            for (var i = 0; i < sheets.length; ++i) {
+                                var elem = sheets[i];
+                                var parent = elem.parentElement || head;
+                                parent.removeChild(elem);
+                                var rel = elem.rel;
+                                if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                                    var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                                    elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                                }
+                                parent.appendChild(elem);
+                            }
+                        }
+                        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                        var address = protocol + window.location.host + window.location.pathname + '/ws';
+                        var socket = new WebSocket(address);
+                        socket.onmessage = function (msg) {
+                            if (msg.data == 'reload') window.location.reload();
+                            else if (msg.data == 'refreshcss') refreshCSS();
+                        };
+                        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                            console.log('Live reload enabled.');
+                            sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                        }
+                    })();
+                }
+                else {
+                    console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+                }
+                // ]]>
+                google.charts.load('current',{packages:['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+
+// Set Data
+const data = google.visualization.arrayToDataTable([
+  ['Price', 'Size'],
+  [50,7],[60,8],[70,8],[80,9],[90,9],
+  [100,9],[110,10],[120,11],
+  [130,14],[140,14],[150,15]
+]);
+
+// Set Options
+const options = {
+  title: 'Spam ware',
+  hAxis: {title: 'No of spam'},
+  vAxis: {title: 'hours'},
+  legend: 'none'
+};
+
+// Draw
+const chart = new google.visualization.ScatterChart(document.getElementById('myChart'));
+chart.draw(data, options);
+
+}
+            </script>
+            
 </body>
 </html>
